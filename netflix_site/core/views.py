@@ -68,6 +68,14 @@ def signup(request):
             return redirect('signup')
     else:
         return render(request, 'signup.html')
+ 
+@login_required(login_url='login')   
+def logout(request):
+    auth.logout(request)
+    return redirect('login')
+
+
+
 
 def add_to_list(request):
     if request.method == 'POST':
