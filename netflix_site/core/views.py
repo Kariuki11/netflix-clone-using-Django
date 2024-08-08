@@ -24,6 +24,10 @@ def movie(request, pk):
     }
     
     return render(request, 'movie.html', context)
+
+def my_list(request):
+    pass
+
     
 def login(request):
     if request.method == 'POST':
