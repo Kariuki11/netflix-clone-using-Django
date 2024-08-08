@@ -38,7 +38,9 @@ def search(request):
             'movies': movies,
             'search_term': search_term
         }
-    return render(request, 'search.html')
+        return render(request, 'search.html')
+    else:
+        return redirect('/')
 
 @login_required(login_url='login')
 def my_list(request):
