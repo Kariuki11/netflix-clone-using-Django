@@ -29,7 +29,7 @@ def movie(request, pk):
     return render(request, 'movie.html', context)
 
 def my_list(request):
-    pass
+    return render(request, 'my_list.html', context)
 
 def add_to_list(request):
     if request.method == 'POST':
