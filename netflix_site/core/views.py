@@ -14,8 +14,17 @@ def index(request):
     }
     return render(request, 'index.html', context)
 
-def movies(request):
-    pass
+@login_required(login_url='login')
+def movie(request, pk):
+    movie_uuid = pk
+    movie_details = Movie.objects.get(uu_id=movie_uuid)
+    
+    context = {
+        'movie_details': movie_details
+    }
+    
+    return render(request, 'movie.html', context)
+    
 def login(request):
     if request.method == 'POST':
         username = request.POST['username']
