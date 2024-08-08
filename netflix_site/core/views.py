@@ -38,7 +38,7 @@ def search(request):
             'movies': movies,
             'search_term': search_term
         }
-        return render(request, 'search.html')
+        return render(request, 'search.html', context)
     else:
         return redirect('/')
 
