@@ -33,6 +33,11 @@ def search(request):
     if request.method == 'POST':
         search_term = request.POST['search_term']
         movies = Movie.objects.filter(title__icontains=search_term)
+        
+        context = {
+            'movies': movies,
+            'search_term': search_term
+        }
     return render(request, 'search.html')
 
 @login_required(login_url='login')
