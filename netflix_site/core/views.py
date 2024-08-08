@@ -2,10 +2,11 @@ from django.http import JsonResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from .models import Movie
+from .models import Movie, MovieList
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import get_object_or_404
 import re
+
 # Create your views here.
 @login_required(login_url='login')
 def index(request):
@@ -37,7 +38,11 @@ def add_to_list(request):
         match = re.search(uuid_pattern, movie_url_id)
         movie_id = match.group() if match else None
         
-        movie
+        movie = get_object_or_404(Movie, uu_id=movie_id)
+        movie_list, created = MovieList.objects.get_or_create(owner_user=request.user, movie=movie)
+        
+        if created:
+            response_data = {'status': 'success', 'message': 'Added '}
     else:
         #return error
         pass
