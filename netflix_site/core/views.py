@@ -28,6 +28,11 @@ def movie(request, pk):
 def my_list(request):
     pass
 
+def add_to_list(request):
+    if request.method == 'POST':
+        # Your logic to add the item to the list
+        return JsonResponse({'message': 'Item added to list successfully'})
+    return JsonResponse({'message': 'Invalid request'}, status=400)
     
 def login(request):
     if request.method == 'POST':
@@ -81,8 +86,8 @@ def logout(request):
 
 
 
-def add_to_list(request):
-    if request.method == 'POST':
-        # Your logic to add the item to the list
-        return JsonResponse({'message': 'Item added to list successfully'})
-    return JsonResponse({'message': 'Invalid request'}, status=400)
+# def add_to_list(request):
+#     if request.method == 'POST':
+#         # Your logic to add the item to the list
+#         return JsonResponse({'message': 'Item added to list successfully'})
+#     return JsonResponse({'message': 'Invalid request'}, status=400)
