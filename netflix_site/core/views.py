@@ -43,6 +43,8 @@ def add_to_list(request):
         
         if created:
             response_data = {'status': 'success', 'message': 'Added ✔'}
+        else:
+            response_data = {'status': 'info', 'message': 'Movie already in in list'}
     else:
         #return error
         pass
