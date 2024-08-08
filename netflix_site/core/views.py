@@ -45,9 +45,11 @@ def add_to_list(request):
             response_data = {'status': 'success', 'message': 'Added ✔'}
         else:
             response_data = {'status': 'info', 'message': 'Movie already in in list'}
+            
+        return JsonResponse(response_data)
     else:
         #return error
-        pass
+        return JsonResponse({'status': 'error', 'message': 'Invalid request'}, status=400)
     
 def login(request):
     if request.method == 'POST':
