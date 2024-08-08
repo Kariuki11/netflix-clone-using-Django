@@ -4,7 +4,6 @@ import uuid
 # Create your models here.
 
 class Movie(models.Model):
-#class Movie(models.Model)
     
     GENRE_CHOICES = [
         ('Action', 'Action'),
