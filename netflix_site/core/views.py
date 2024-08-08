@@ -42,7 +42,7 @@ def add_to_list(request):
         movie_list, created = MovieList.objects.get_or_create(owner_user=request.user, movie=movie)
         
         if created:
-            response_data = {'status': 'success', 'message': 'Added '}
+            response_data = {'status': 'success', 'message': 'Added ✔'}
     else:
         #return error
         pass
