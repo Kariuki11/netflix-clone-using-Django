@@ -29,17 +29,31 @@ def movie(request, pk):
     return render(request, 'movie.html', context)
 
 @login_required(login_url='login')
-def my_list(request):
+# def my_list(request):
     
+#     movie_list = MovieList.objects.filter(owner_user=request.user)
+#     user_movie_list = []
+    
+#     for movie in movie_list:
+#         user_movie_list.append(movie.movie)
+#     context = {
+#         'movies': user_movie_list
+#     }
+#     return render(request, 'my_list.html', context)
+
+def my_list(request):
+
     movie_list = MovieList.objects.filter(owner_user=request.user)
     user_movie_list = []
-    
+
     for movie in movie_list:
         user_movie_list.append(movie.movie)
+
     context = {
         'movies': user_movie_list
     }
     return render(request, 'my_list.html', context)
+
 
 @login_required(login_url='login')
 def add_to_list(request):
