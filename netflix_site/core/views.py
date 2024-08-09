@@ -31,7 +31,13 @@ def movie(request, pk):
 @login_required(login_url='login')
 def genre(request, pk):
     movie_genre = pk
-    return render(request, 'genre.html')
+    movies = Movie.objects.filter(genre=movie_genre)
+    
+    context = {
+        'movies': movies,
+        'movie_genre': movie_genre,
+    }
+    return render(request, 'genre.html', context)
 
 
 
