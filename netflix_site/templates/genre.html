@@ -58,12 +58,12 @@
     
         <div align="center">
             <h2 class="text-xl mb-5">
-                Drama Films
+                'Drama' Films
             </h2>
         </div>
         <div class="flex space-x-5 overflow-x-auto">
 
-            {% for movie in movies reversed %}
+            {% for movie in movies %}
             <div class="w-40 h-64 flex-shrink-0 film-card"
                 onclick="showModal(this)" 
                 data-title="{{ movie.title }}"
