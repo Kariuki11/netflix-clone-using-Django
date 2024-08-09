@@ -30,6 +30,8 @@ def movie(request, pk):
 
 @login_required(login_url='login')
 def genre(request, pk):
+    movie_genre = pk
+    return render(request, 'genre.html')
 
 
 
