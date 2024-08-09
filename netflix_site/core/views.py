@@ -28,6 +28,9 @@ def movie(request, pk):
     
     return render(request, 'movie.html', context)
 
+@login_required(login_url='login')
+def genre(request, pk):
+
 
 
 @login_required(login_url='login')
